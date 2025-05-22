@@ -39,11 +39,13 @@ sudo apt install -y curl sudo wget unzip bzip2 libdrm-dev libxkbcommon-dev \
 #=============================
 sudo mkdir -p "$ANDROID_SDK_ROOT"
 sudo chown -R $(whoami):$(whoami) "$ANDROID_SDK_ROOT"
-wget -O /tmp/$ANDROID_CMD https://dl.google.com/android/repository/$ANDROID_CMD
-unzip -d "$ANDROID_SDK_ROOT" /tmp/$ANDROID_CMD
 
-mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools/tools"
-mv "$ANDROID_SDK_ROOT/cmdline-tools/"{bin,lib,NOTICE.txt,source.properties} "$ANDROID_SDK_ROOT/cmdline-tools/tools/" || true
+if [ ! -f "$ANDROID_CMD" ]; then
+  wget -O $ANDROID_CMD https://dl.google.com/android/repository/$ANDROID_CMD
+  unzip -d "$ANDROID_SDK_ROOT" $ANDROID_CMD
+  mkdir -p "$ANDROID_SDK_ROOT/cmdline-tools/tools"
+  mv "$ANDROID_SDK_ROOT/cmdline-tools/"{bin,lib,NOTICE.txt,source.properties} "$ANDROID_SDK_ROOT/cmdline-tools/tools/" || true
+fi
 
 #=============================
 # Set environment variables
