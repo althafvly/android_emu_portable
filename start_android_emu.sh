@@ -9,7 +9,7 @@ export HOME="$PWD/home"
 #=============================
 # Set default values
 #=============================
-BUILD_TOOLS="36.0.0"
+BUILD_TOOLS="35.0.1"
 ANDROID_SDK_ROOT="$PWD/opt/android"
 EMULATOR_NAME="Pixel_6_Pro"
 

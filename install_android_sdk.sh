@@ -5,9 +5,9 @@ set -e
 # Set default values
 #=============================
 ARCH="x86_64"
-TARGET="google_apis_playstore"
-API_LEVEL="36"
-BUILD_TOOLS="36.0.0"
+TARGET="default"
+API_LEVEL="35"
+BUILD_TOOLS="35.0.1"
 ANDROID_API_LEVEL="android-${API_LEVEL}"
 ANDROID_APIS="${TARGET};${ARCH}"
 EMULATOR_PACKAGE="system-images;${ANDROID_API_LEVEL};${ANDROID_APIS}"
