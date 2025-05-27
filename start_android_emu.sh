@@ -11,7 +11,7 @@ export HOME="$PWD/home"
 #=============================
 BUILD_TOOLS="36.0.0"
 ANDROID_SDK_ROOT="$PWD/opt/android"
-EMULATOR_NAME="nexus"
+EMULATOR_NAME="Pixel_6_Pro"
 
 #=============================
 # Set environment variables

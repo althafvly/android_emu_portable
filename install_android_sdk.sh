@@ -2,13 +2,6 @@
 set -e
 
 #=============================
-# Set custom home directory
-#=============================
-ACTUAL_HOME=$HOME
-export HOME="$PWD/home"
-mkdir -p "$HOME/.android/avd/"
-
-#=============================
 # Set default values
 #=============================
 ARCH="x86_64"
@@ -23,8 +16,6 @@ BUILD_TOOL="build-tools;${BUILD_TOOLS}"
 ANDROID_CMD="commandlinetools-linux-13114758_latest.zip"
 ANDROID_SDK_PACKAGES="${EMULATOR_PACKAGE} ${PLATFORM_VERSION} ${BUILD_TOOL} platform-tools emulator"
 ANDROID_SDK_ROOT="$PWD/opt/android"
-EMULATOR_NAME="nexus"
-EMULATOR_DEVICE="Nexus 6"
 
 #=============================
 # Install system dependencies
@@ -58,12 +49,5 @@ export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/tools:$ANDROID_SDK_ROOT/cmdli
 #=============================
 yes | sdkmanager --licenses
 yes | sdkmanager --verbose --no_https ${ANDROID_SDK_PACKAGES}
-
-#=============================
-# Create emulator
-#=============================
-echo "no" | avdmanager --verbose create avd --force --name "$EMULATOR_NAME" --device "$EMULATOR_DEVICE" --package "$EMULATOR_PACKAGE"
-
-cp -r $ACTUAL_HOME/.android/avd/"$EMULATOR_NAME".* $HOME/.android/avd/
 
 echo -e "\n✅ Android emulator setup complete!"
